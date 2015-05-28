@@ -1,140 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      html, body, #map-canvas {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-      }
-.map-menu {
-    position: absolute;
-    top: 0%;
-    left: 10%;
-    height: 5%;
-    width: 10%;
-    overflow: hidden;
-    z-index: 10;
-    transition: height 1s, width 1s;
-}
-
-.menu-items {
-    background-color: white;
-    width: auto;
-    height: auto;
-    opacity: 0.8;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 10pt;
-    color: navy;
-}
-
-.map-menu:hover {
-    height: 30%;
-    width: 18%;
-}
-
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualization"></script>
-    <script>
-      var map;
-      var heatmap=null;
-      var saved_results=null;
-      var vis="marker";
-
-      function initialize() {
-        var mapOptions = {
-          zoom: 2,
-          center: {lat: -33.865427, lng: 151.196123},
-          mapTypeId: google.maps.MapTypeId.TERRAIN
-        };
-        map = new google.maps.Map(document.getElementById('map-canvas'),
-              mapOptions);
-
-        // Create a <script> tag and set the USGS URL as the source.
-        var script = document.createElement('script');
-        script.src = 'http://earthquake.usgs.gov/earthquakes/feed/geojsonp/2.5/week';
-        document.getElementsByTagName('head')[0].appendChild(script);
-
-        // Haleakala Track layer
-        document.getElementById('vis').addEventListener('click', setVisual, false);
-      }
-      
-      function setVisual(e) {
-          vis = e.target.id;
-          if (heatmap) heatmap.setMap(null);
-          eqfeed_callback(saved_results);
-      }
-
-      function getCircle(feature) {
-        var magnitude = feature.getProperty('mag');
-        var circle = {
-          path: google.maps.SymbolPath.CIRCLE,
-          fillColor: 'red',
-          fillOpacity: .2,
-          scale: Math.pow(2, magnitude) / 2,
-          strokeColor: 'white',
-          strokeWeight: .5
-        };
-        return circle;
-      }
-
-      function showHeatMap(results) {
-        var heatmapData = [];
-        for (var i = 0; i < results.features.length; i++) {
-          var coords = results.features[i].geometry.coordinates;
-          var latLng = new google.maps.LatLng(coords[1], coords[0]);
-          var magnitude = results.features[i].properties.mag;
-          var weightedLoc = {
-            location: latLng,
-            weight: Math.pow(2, magnitude)
-          };
-          heatmapData.push(weightedLoc);
-        }
-        
-        heatmap = new google.maps.visualization.HeatmapLayer({
-          data: heatmapData,
-          dissipating: false,
-          map: map
-        });
-      }
-
-      function eqfeed_callback(results) {
-        if (!saved_results) saved_results = results;
-        
-        switch (vis) {
-        case "marker":
-          map.data.setStyle( {icon: ""} );
-          map.data.addGeoJson(results);
-          break;
-        case "circle":
-          map.data.setStyle(function(feature) {
-            return { icon: getCircle(feature) };
-          });
-          map.data.addGeoJson(results);
-          break;
-        case "heatmap":
-          map.data.setStyle({visible: false});
-          showHeatMap(results);
-          break;
-        }
-      }
-      
-      // Call the initialize function after the page has finished loading
-      google.maps.event.addDomListener(window, 'load', initialize);
-  </script>
+    <title>Data Visualization</title>
+    <link rel="stylesheet" type="text/css" href="dv.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualization"></script>
+    <script type="text/javascript" src="dv.js"></script>
   </head>
   <body>
-        <div id="menubox" class="map-menu">
-                <h4 class="menu-tab">Visualize</h4>
-                <div id="vis" class="menu-items">
-                    <label for="marker"><input id="marker" name="mapLayers" type="radio" checked>
-                        Markers</label><br>
-                    <label for="circle"><input id="circle" name="mapLayers" type="radio">
-                        Circles</label><br>
-                    <label for="heatmap"><input id="heatmap" name="mapLayers" type="radio">
-                        Heatmap</label><br>
+    <div id="menubox">
+        <div id="vizbox" class="viz-menu">
+                <div class="viz-tab">Visualize</div>
+                <div id="viz" class="viz-items">
+                    <label for="marker"><input id="marker" name="viztype" type="radio" checked>
+                        Earthquake Markers</label><br>
+                    <label for="circle"><input id="circle" name="viztype" type="radio">
+                        Earthquake Circles</label><br>
+                    <label for="heatmap"><input id="heatmap" name="viztype" type="radio">
+                        Earthquake Heatmap</label><br>
                 </div>
         </div>
+        <div id="srcbox" class="viz-menu">
+                <div class="viz-tab">Earthquakes</div>
+                <div id="datsrc" class="viz-items">
+                    <label for="src1"><input id="src1" name="websvc" type="radio">
+                        2.5 Week Data Points</label><br>
+                    <label for="src2"><input id="src2" name="websvc" type="radio">
+                        2014 USGS Data Points</label><br>
+                    <label for="src3"><input id="src3" name="websvc" type="radio">
+                        2015 USGS Data Points</label><br>
+                </div>
+        </div>
+        <div id="panobox" class="viz-menu">
+                <div class="viz-tab">Tours</div>
+                <div id="panosrc" class="viz-items">
+                    <label for="pano0"><input id="pano0" name="panorama" type="radio" checked>
+                        Hide</label><br>
+                    <label for="pano1"><input id="pano1" name="panorama" type="radio">
+                        Google Android</label><br>
+                    <label for="pano2"><input id="pano2" name="panorama" type="radio">
+                        My Backyard</label><br>
+                    <label for="pano3"><input id="pano3" name="panorama" type="radio">
+                        Google Android</label><br>
+                </div>
+        </div>
+    </div>
     <div id="map-canvas"></div>
+    <section id="pano-show">
+      <div id="pano-canvas"></div>
+      <div id="pano-info"></div>
+    </section>
   </body>
 </html>

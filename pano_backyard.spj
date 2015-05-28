@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stitchProject version="2.0" cameraMotion="automatic" computedCameraMotion="rotation3D" projection="spherical">
+  <vignetteCorrection redFactor="0.241935477" greenFactor="0.241935477" blueFactor="0.241935477" globalIntensityScale="1" />
+  <sourceImages>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1332.JPG">
+      <cameraPose yaw="16.769348954806695" pitch="7.0868524631479053" roll="-0.37563230490893446" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1333.JPG">
+      <cameraPose yaw="34.451825540010837" pitch="7.0610796495515871" roll="-1.4646183299102409" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1334.JPG">
+      <cameraPose yaw="54.419407393494488" pitch="4.158964472228984" roll="-1.9722138222987595" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1335.JPG">
+      <cameraPose yaw="71.582500449450009" pitch="4.6616409781755053" roll="-2.7128801998837679" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1336.JPG">
+      <cameraPose yaw="92.41179483298535" pitch="5.037480420072991" roll="-2.8961104629844083" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1337.JPG">
+      <cameraPose yaw="115.14486592992296" pitch="4.0730473368960514" roll="-2.2598837724540077" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1338.JPG">
+      <cameraPose yaw="135.07130105436798" pitch="4.5523776501074327" roll="-2.0265591662556739" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1339.JPG">
+      <cameraPose yaw="156.54204891888219" pitch="4.8814380624476623" roll="-2.665151466512409" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1340.JPG">
+      <cameraPose yaw="177.54823154777495" pitch="5.1834508954058141" roll="-3.4262552672042612" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1341.JPG">
+      <cameraPose yaw="-162.68064061355508" pitch="5.0095231509740614" roll="-3.3194973021558951" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1342.JPG">
+      <cameraPose yaw="-144.37404240188127" pitch="6.8632036660226277" roll="-3.1551200626273008" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1343.JPG">
+      <cameraPose yaw="-119.32733334787697" pitch="6.921226219211607" roll="-2.7809697226662142" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1344.JPG">
+      <cameraPose yaw="-120.22327994669081" pitch="7.3857701325368765" roll="-2.70232380402691" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1345.JPG">
+      <cameraPose yaw="-120.07902643541574" pitch="8.5805909320296134" roll="-2.856411226462328" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1346.JPG">
+      <cameraPose yaw="-98.9798843575672" pitch="6.6900366412621777" roll="-2.411001672249204" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1347.JPG">
+      <cameraPose yaw="-73.924686899441113" pitch="6.1696282112600027" roll="-1.6764754288147865" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1348.JPG">
+      <cameraPose yaw="-53.811395726605127" pitch="5.7020177616656049" roll="-1.0815090038049961" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1349.JPG">
+      <cameraPose yaw="-31.952592472034713" pitch="6.5161895066079483" roll="-1.5742345077654287" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1350.JPG">
+      <cameraPose yaw="-10.006372986821198" pitch="6.10413149641825" roll="-0.089872085356192108" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1351.JPG">
+      <cameraPose yaw="10.379848666216018" pitch="6.1313142422037821" roll="-1.5279878008755323" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1352.JPG">
+      <cameraPose yaw="32.586300776439522" pitch="6.2997239383058625" roll="-2.479467925339228" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1353.JPG">
+      <cameraPose yaw="10.193049952463596" pitch="23.314014202713793" roll="-1.4375915294073069" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1354.JPG">
+      <cameraPose yaw="8.04217759696791" pitch="43.515963022548945" roll="-2.2515736437674896" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1355.JPG">
+      <cameraPose yaw="7.8600033171827235" pitch="69.907095050846152" roll="-1.9714992962056457" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1356.JPG">
+      <cameraPose yaw="12.850546162205665" pitch="-9.2256403258245676" roll="-5.5002401750989662" angleUnit="degrees" focalLength="1.8417302703097442" tolerance="4" />
+    </sourceImage>
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1357.JPG" />
+    <sourceImage filePath="C:\Users\Dale\Google Drive\SummerBridge\2015\www\dv\images\101_1358.JPG" />
+  </sourceImages>
+</stitchProject>

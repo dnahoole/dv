@@ -1,0 +1,11 @@
+gm convert -crop 2586x1293 panorama.jpg +adjoin tile_4_%d.jpg
+
+gm convert -crop 2586x1293 panorama.jpg +adjoin tile_2_%d.jpg
+
+gm convert -crop 2884x323 panorama.jpg +adjoin tile_3_%d.jpg
+
+gm convert -crop 1442x162 panorama.jpg +adjoin tile_4_%d.jpg
+
+gm convert -crop 2884x1293 panorama.jpg +adjoin tile_1_%d.jpg
+
+gm convert -crop 2884x1293 panorama.jpg +adjoin tile_2_%d.jpg
