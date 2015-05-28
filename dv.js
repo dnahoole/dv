@@ -4,29 +4,51 @@ var saved_results = null;
 var vis = "marker";
 var panorama;
 var ehaStreet = new google.maps.LatLng(20.898621, -156.493613);
+var locWailuku = new google.maps.LatLng(20.8911111, -156.5047222);
+var locAndroid = new google.maps.LatLng(20.891435, -156.478957);
 
 // The panorama that will be used as the entry point to the custom
 // panorama set.
-var entryPanoId = null;
-
+var last_marker = null;
 
 function initialize() {
     var mapOptions = {
         zoom: 8,
-        center: new google.maps.LatLng(20.8911111, -156.5047222),
+        center: locWailuku,
         mapTypeId: google.maps.MapTypeId.TERRAIN
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
+
+    var ehaMarker = new google.maps.Marker({
+      position: ehaStreet,
+      map: map,
+      title: 'Eha Street'
+    });
+  
+    google.maps.event.addListener(ehaMarker, 'click', function() {
+//      map.setZoom(14);
+      map.setCenter(ehaMarker.getPosition());
+      setPanorama(ehaMarker);
+    });
+
+    var androidMarker = new google.maps.Marker({
+      position: locAndroid,
+      map: map,
+      title: 'Android'
+    });
+  
+    google.maps.event.addListener(androidMarker, 'click', function() {
+//      map.setZoom(14);
+      map.setCenter(androidMarker.getPosition());
+      setPanorama(androidMarker);
+    });
 
     // Visualization style:  Marker, Circles, Heatmap.
     document.getElementById('viz').addEventListener('change', setVisual, false);
 
     // Web service:  USGS 2.5 Week, 2014, 2015.
     document.getElementById('datsrc').addEventListener('change', setSrc, false);
-
-    // Panoramas
-    document.getElementById('panosrc').addEventListener('change', setPanorama, false);
 }
 
 function setSrc(e) {
@@ -121,13 +143,19 @@ function eqfeed_callback(results) {
     }
 }
 
-function setPanorama(e) {
-    var myPanoid = "";
+function setPanorama(marker) {
     var panoramaOptions = {};
     
-    document.getElementById('pano-show').setAttribute("style", "opacity: 1; z-index: 10");
-
-    if (document.getElementById('pano1').checked) {
+    if (last_marker == marker) {
+      document.getElementById('pano-show').setAttribute("style", "opacity: 0; z-index: -1");
+      toggleBounce(marker);
+      return;
+    } else {
+      document.getElementById('pano-show').setAttribute("style", "opacity: 1; z-index: 10");
+    }
+    
+    switch (marker.title) {
+      case 'Android':
         panoramaOptions = {
           pano: 'QKZJDF5QWO0AAAAAAAABOw',
           pov: {
@@ -136,7 +164,8 @@ function setPanorama(e) {
           },
           zoom: 1
         };
-    } else if (document.getElementById('pano2').checked) {
+        break;
+      case 'Eha Street':
         // Set up Street View and initially set it visible. Register the
         // custom panorama provider function.
         panoramaOptions = {
@@ -148,18 +177,8 @@ function setPanorama(e) {
           zoom: 1,
           panoProvider: getCustomPanorama
         };
-    } else if (document.getElementById('pano3').checked) {
-        panoramaOptions = {
-          pano: 'QKZJDF5QWO0AAAAAAAABOw',
-          pov: {
-              heading: 45,
-              pitch: -2
-          },
-          zoom: 1
-        };
-    } else {
-        document.getElementById('pano-show').setAttribute("style", "opacity: 0; z-index: -1");
-        map.setStreetView(null);
+        break;
+      default:
         return;
     }
 
@@ -167,8 +186,18 @@ function setPanorama(e) {
         document.getElementById('pano-canvas'),
         panoramaOptions);
     myPano.setVisible(true);
+    toggleBounce(marker);
 }
 
+function toggleBounce(marker) {
+        if (last_marker) last_marker.setAnimation(null);
+        if (last_marker != marker) {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+          last_marker = marker;
+        } else {
+          last_marker = null;
+        }
+}
 
 function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY) {
     var n = tileY * Math.pow(2, zoom) + tileX;
