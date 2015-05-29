@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="dv.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualization"></script>
     <script type="text/javascript" src="dv.js"></script>
+    <script type="text/javascript" src="streetview.js"></script>
+    <script type="text/javascript" src="usgs.js"></script>
   </head>
   <body>
     <div id="menubox">
@@ -50,4 +52,11 @@
       <div id="pano-info"></div>
     </section>
   </body>
+    <script type="text/javascript">
+      var usgs = new USGS();
+      var sv = new StreetView();
+      var dv = new DV();
+      sv.initialize(dv.map);
+      usgs.initialize(dv.map);
+    </script>
 </html>
