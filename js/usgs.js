@@ -9,12 +9,20 @@ this.initialize = function(basemap) {
     if (basemap) {
         self.map = basemap;
     }
+    
+    // Visualization style:  Marker, Circles, Heatmap.
+    document.getElementById('viz').addEventListener('change', self.setVisual, false);
+
+    // Web service:  USGS 2.5 Week, 2014, 2015.
+    document.getElementById('datsrc').addEventListener('change', self.setSrc, false);
 }
 
 this.setSrc = function(e) {
     var webservice = "";
 
-    if (document.getElementById('src1').checked) {
+    if (document.getElementById('src0').checked) {
+        webservice = '';
+    } else if (document.getElementById('src1').checked) {
         webservice = 'http://earthquake.usgs.gov/earthquakes/feed/geojsonp/2.5/week';
     } else if (document.getElementById('src2').checked) {
         webservice = 'http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02&minmagnitude=6&callback=eqfeed_callback&endtime=2015-05-14%2023:59:59&orderby=time&jsonerror=true';
@@ -22,19 +30,24 @@ this.setSrc = function(e) {
         webservice = 'http://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2015-05-07%2000:00:00&minmagnitude=6&callback=eqfeed_callback&endtime=2015-05-14%2023:59:59&orderby=time';
     }
 
-    // Create a <script> tag and set the USGS URL as the source.
-    var script = document.createElement('script');
-    script.src = webservice;
+    // Remove existing <script id=eqid> tag.
+    var script = document.getElementById('eqid');
+    if (script) document.getElementsByTagName('head')[0].removeChild(script);
 
-    self.map.data.forEach(function(feature) {
-        self.map.data.remove(feature);
-    });
+    // Create a <script> tag and set the USGS URL as the source.
+    script = document.createElement('script');
+    script.id = 'eqid';
+    script.src = webservice;
+    document.getElementsByTagName('head')[0].appendChild(script);
 
     if (self.heatmap) self.heatmap.setMap(null);
 
-    if (self.saved_results) self.saved_results = null;
-
-    document.getElementsByTagName('head')[0].appendChild(script);
+    if (self.saved_results) {
+        self.map.data.forEach(function(feature) {
+            self.map.data.remove(feature);
+        });
+        self.saved_results = null;
+    }
 }
 
 this.setVisual = function(e) {

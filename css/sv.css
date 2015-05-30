@@ -1,0 +1,28 @@
+#pano-show {
+    position: absolute;
+    top: 10%;
+    left: 69%;
+    height: 80%;
+    width: 30%;
+    border: 2px solid green;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 1s, z-index 1s;
+    overflow: hidden;
+}
+
+#pano-canvas {
+    height: 50%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#pano-info {
+    height: 49%;
+    width: 99%;
+    margin: 2px;
+    background-color: purple;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid yellow;
+}

@@ -2,11 +2,16 @@
 <html>
   <head>
     <title>Data Visualization</title>
-    <link rel="stylesheet" type="text/css" href="dv.css">
+    <link rel="stylesheet" type="text/css" href="css/dv.css">
+    <link rel="stylesheet" type="text/css" href="css/sv.css">
+    <link rel="stylesheet" type="text/css" href="css/usgs.css">
+    <link rel="stylesheet" type="text/css" href="css/epa.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualization"></script>
-    <script type="text/javascript" src="dv.js"></script>
-    <script type="text/javascript" src="streetview.js"></script>
-    <script type="text/javascript" src="usgs.js"></script>
+    <script type="text/javascript" src="js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="js/dv.js"></script>
+    <script type="text/javascript" src="js/sv.js"></script>
+    <script type="text/javascript" src="js/usgs.js"></script>
+    <script type="text/javascript" src="js/epa.js"></script>
   </head>
   <body>
     <div id="menubox">
@@ -21,28 +26,30 @@
                         Earthquake Heatmap</label><br>
                 </div>
         </div>
-        <div id="srcbox" class="viz-menu">
-                <div class="viz-tab">Earthquakes</div>
-                <div id="datsrc" class="viz-items">
+        <div id="srcbox" class="usgs-menu">
+                <div class="usgs-tab">USGS</div>
+                <div id="datsrc" class="usgs-items">
+                    <label for="src0"><input id="src0" name="websvc" type="radio">
+                        Clear</label><br>
                     <label for="src1"><input id="src1" name="websvc" type="radio">
-                        2.5 Week Data Points</label><br>
+                        Earthquakes: Week Data</label><br>
                     <label for="src2"><input id="src2" name="websvc" type="radio">
-                        2014 USGS Data Points</label><br>
+                        Earthquakes: 2014 Data</label><br>
                     <label for="src3"><input id="src3" name="websvc" type="radio">
-                        2015 USGS Data Points</label><br>
+                        Earthquakes: 2015 Data</label><br>
                 </div>
         </div>
-        <div id="panobox" class="viz-menu">
-                <div class="viz-tab">Tours</div>
-                <div id="panosrc" class="viz-items">
-                    <label for="pano0"><input id="pano0" name="panorama" type="radio" checked>
-                        Hide</label><br>
-                    <label for="pano1"><input id="pano1" name="panorama" type="radio">
-                        Google Android</label><br>
-                    <label for="pano2"><input id="pano2" name="panorama" type="radio">
-                        My Backyard</label><br>
-                    <label for="pano3"><input id="pano3" name="panorama" type="radio">
-                        Google Android</label><br>
+        <div id="epabox" class="epa-menu">
+                <div class="epa-tab">EPA</div>
+                <div id="epasrc" class="epa-items">
+                    <label for="epa0"><input id="epa0" name="epasvc" type="radio">
+                        Clear</label><br>
+                    <label for="epa1"><input id="epa1" name="epasvc" type="radio">
+                        EDG EPA Service #1</label><br>
+                    <label for="epa2"><input id="epa2" name="epasvc" type="radio">
+                        EDG EPA Service #2</label><br>
+                    <label for="epa3"><input id="epa3" name="epasvc" type="radio">
+                        EDG EPA Service #3</label><br>
                 </div>
         </div>
     </div>
@@ -53,10 +60,12 @@
     </section>
   </body>
     <script type="text/javascript">
+      var dv = new DV();
       var usgs = new USGS();
       var sv = new StreetView();
-      var dv = new DV();
+      var hgt = new HiGeoThermal();
       sv.initialize(dv.map);
       usgs.initialize(dv.map);
+      hgt.initialize(dv.map);
     </script>
 </html>
