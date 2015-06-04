@@ -1,5 +1,5 @@
 .viz-menu {
-    float: left;
+    float: right;
     height: 35px;
     width: 120px;
     overflow: hidden;
@@ -32,7 +32,7 @@
 }
 
 .viz-menu:hover {
-    height: 100px;
+    height: 140px;
     width: 200px;
 }
 

@@ -1,0 +1,20 @@
+.coord-menu {
+    float: right;
+    height: 35px;
+    width: 140px;
+    overflow: hidden;
+}
+
+.coord-tab {
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin: 5px;
+    padding: 3px;
+    color: black;
+    background-color: gold;
+    font-family: arial, sans-serif;
+    border-radius: 10px;
+    border: 1px solid yellow;
+    transition: background-color 1s, color 1s;
+}

@@ -1,0 +1,37 @@
+.nat-menu {
+    float: left;
+    height: 35px;
+    width: 140px;
+    overflow: hidden;
+    transition: height 1s, width 1s;
+}
+
+.nat-items {
+    width: auto;
+    height: auto;
+    opacity: 0.9;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 10pt;
+    color: black;
+    background-color: gold;
+    border-radius: 10px;
+    border: 1px solid yellow;
+}
+
+.nat-tab {
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin: 5px;
+    padding: 3px;
+    color: black;
+    background: gold;
+    font-family: arial, sans-serif;
+    border-radius: 10px;
+    border: 1px solid yellow;
+}
+
+.nat-menu:hover {
+    height: 140px;
+    width: 200px;
+}

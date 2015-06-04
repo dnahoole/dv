@@ -1,28 +1,37 @@
-#pano-show {
+#summary {
     position: absolute;
-    top: 10%;
-    left: 69%;
-    height: 80%;
+    top: 65%;
+    left: 2%;
+    height: 30%;
     width: 30%;
-    border: 2px solid green;
-    z-index: 0;
+    margin: 2px;
+    padding: 5px;
+    background-color: gold;
+    border-radius: 10px;
+    border: 3px ridge black;
+    z-index: -1;
     opacity: 0;
     transition: opacity 1s, z-index 1s;
     overflow: hidden;
 }
 
-#pano-canvas {
-    height: 50%;
-    width: 100%;
+#datapoint {
+    position: absolute;
+    top: 65%;
+    left: 67%;
+    height: 30%;
+    width: 30%;
+    margin: 2px;
+    padding: 5px;
+    background-color: gold;
+    border: 3px ridge black;        
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s, z-index 1s;
     overflow: hidden;
 }
 
-#pano-info {
-    height: 49%;
-    width: 99%;
-    margin: 2px;
-    background-color: purple;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid yellow;
+.infotitle {
+        text-align: center;
 }

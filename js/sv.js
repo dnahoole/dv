@@ -18,9 +18,8 @@ this.initialize = function(basemap) {
       map: self.map,
       title: 'Eha Street'
     });
-  
+
     google.maps.event.addListener(ehaMarker, 'click', function() {
-//      map.setZoom(14);
       self.map.setCenter(ehaMarker.getPosition());
       self.setPanorama(ehaMarker);
     });
@@ -30,9 +29,8 @@ this.initialize = function(basemap) {
       map: self.map,
       title: 'Android'
     });
-  
+
     google.maps.event.addListener(androidMarker, 'click', function() {
-//      map.setZoom(14);
       self.map.setCenter(androidMarker.getPosition());
       self.setPanorama(androidMarker);
     });

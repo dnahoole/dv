@@ -2,70 +2,94 @@
 <html>
   <head>
     <title>Data Visualization</title>
-    <link rel="stylesheet" type="text/css" href="css/dv.css">
-    <link rel="stylesheet" type="text/css" href="css/sv.css">
-    <link rel="stylesheet" type="text/css" href="css/usgs.css">
-    <link rel="stylesheet" type="text/css" href="css/epa.css">
+    
+    <!-- Google Maps API & D3.js API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualization"></script>
     <script type="text/javascript" src="js/d3.v3.min.js"></script>
+
+    <!-- General Data Visualization stylesheet & scripts -->
+    <link rel="stylesheet" type="text/css" href="css/dv.css">
     <script type="text/javascript" src="js/dv.js"></script>
+
+    <!--- Google Maps StreetView -->
+    <link rel="stylesheet" type="text/css" href="css/sv.css">
     <script type="text/javascript" src="js/sv.js"></script>
+
+    <!-- OpenData:  USGS Earthquake Service -->
+    <link rel="stylesheet" type="text/css" href="css/usgs.css">
     <script type="text/javascript" src="js/usgs.js"></script>
+
+    <!-- Find geographic coordinates interactively -->
+    <link rel="stylesheet" type="text/css" href="css/coord.css">
+    <script type="text/javascript" src="js/coord.js"></script>
+    
+    <!-- OpenData:  Hawaii Geothermal Sites & Higher Educ. enrollment -->
+    <link rel="stylesheet" type="text/css" href="css/epa.css">
     <script type="text/javascript" src="js/epa.js"></script>
+
+    <!-- DyGraph:  Graph time-series data  -->
+    <script type="text/javascript" src="js/dygraph-combined.js"></script>
+    
   </head>
   <body>
     <div id="menubox">
-        <div id="vizbox" class="viz-menu">
-                <div class="viz-tab">Visualize</div>
-                <div id="viz" class="viz-items">
-                    <label for="marker"><input id="marker" name="viztype" type="radio" checked>
-                        Earthquake Markers</label><br>
-                    <label for="circle"><input id="circle" name="viztype" type="radio">
-                        Earthquake Circles</label><br>
-                    <label for="heatmap"><input id="heatmap" name="viztype" type="radio">
-                        Earthquake Heatmap</label><br>
-                </div>
-        </div>
         <div id="srcbox" class="usgs-menu">
-                <div class="usgs-tab">USGS</div>
+                <div class="usgs-tab">Earthquakes</div>
                 <div id="datsrc" class="usgs-items">
                     <label for="src0"><input id="src0" name="websvc" type="radio">
                         Clear</label><br>
                     <label for="src1"><input id="src1" name="websvc" type="radio">
-                        Earthquakes: Week Data</label><br>
+                            Within the last Week</label><br>
                     <label for="src2"><input id="src2" name="websvc" type="radio">
-                        Earthquakes: 2014 Data</label><br>
+                            Within the last Month</label><br>
                     <label for="src3"><input id="src3" name="websvc" type="radio">
-                        Earthquakes: 2015 Data</label><br>
+                            Within the last Year</label>
                 </div>
         </div>
         <div id="epabox" class="epa-menu">
-                <div class="epa-tab">EPA</div>
+                <div class="epa-tab">Hawaii</div>
                 <div id="epasrc" class="epa-items">
                     <label for="epa0"><input id="epa0" name="epasvc" type="radio">
                         Clear</label><br>
                     <label for="epa1"><input id="epa1" name="epasvc" type="radio">
-                        EDG EPA Service #1</label><br>
+                        Geothermal Sites</label><br>
                     <label for="epa2"><input id="epa2" name="epasvc" type="radio">
-                        EDG EPA Service #2</label><br>
+                        UHMC Enrollment</label><br>
                     <label for="epa3"><input id="epa3" name="epasvc" type="radio">
-                        EDG EPA Service #3</label><br>
+                        UH Manoa Enrollment</label><br>
+                </div>
+        </div>
+         <div id="vizbox" class="viz-menu">
+                <div class="viz-tab">Visualize</div>
+                <div id="viz" class="viz-items">Data Points as:<br>
+                    <label for="marker"><input id="marker" name="viztype" type="radio" checked>
+                        Markers</label><br>
+                    <label for="circle"><input id="circle" name="viztype" type="radio">
+                        Circles</label><br>
+                    <label for="heatmap"><input id="heatmap" name="viztype" type="radio">
+                        Heatmap</label><br>
+                </div>
+        </div>
+        <div class="coord-menu">
+                <div id="coord" class="coord-tab">
+                    <label for="gc0"><input id="gc0" name="gcsvc" type="checkbox">
+                        Coordinates</label><br>
                 </div>
         </div>
     </div>
     <div id="map-canvas"></div>
-    <section id="pano-show">
-      <div id="pano-canvas"></div>
-      <div id="pano-info"></div>
-    </section>
+    <div id="summary"></div>
+    <div id="datapoint"></div>
   </body>
     <script type="text/javascript">
       var dv = new DV();
       var usgs = new USGS();
       var sv = new StreetView();
-      var hgt = new HiGeoThermal();
-      sv.initialize(dv.map);
+      var hed = new HigherEd();
+      var gc = new GeoCoord();
+//      sv.initialize(dv.map);
       usgs.initialize(dv.map);
-      hgt.initialize(dv.map);
+      hed.initialize(dv.map);
+      gc.initialize(dv.map);
     </script>
 </html>
